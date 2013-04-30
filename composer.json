@@ -1,12 +1,37 @@
 {
-    "name": "nod.st/nod",
-    "type": "cakephp-plugin",
-    "keywords": ["cakephp", "nod", "admin", "plugin"],
-    "require": {
-        "php": ">=5.3.3",
-        "composer/installers": "*"
+    "name"         : "nod.st/nod",
+    "type"         : "cakephp-plugin",
+    "keywords"     : ["cakephp", "nod", "admin", "plugin"],
+    "repositories" : [
+        {
+            "type": "vcs",
+            "url": "git@github.com:JacopKane/Cake-ClientRedirect.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:JacopKane/Cake-ControllersList.git"
+        },
+        {
+            "type"      : "package",
+            "package"   : {
+                "name"      : "mtkocak/bootstrappifier",
+                "type"      : "cakephp-plugin",
+                "version"   : "0",
+                "dist"      : {
+                    "url": "https://github.com/mtkocak/Cakephp-Bootstrappifier/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+        }
+    ],
+    "require"       : {
+        "php"                     : ">=5.3.3",
+        "composer/installers"     : "*",
+        "nod.st/client_redirect"  : "*",
+        "nod.st/controllers_list" : "*",
+        "mtkocak/bootstrappifier" : "*"
     },
-    "authors": [
+    "authors"       : [
         {
             "name": "Furkan Tunalı",
             "email": "mail@furkantunali.com"
