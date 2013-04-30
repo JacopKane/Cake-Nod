@@ -1,0 +1,13 @@
+{
+    "name": "nod.st/cake-nod",
+    "require": {
+        "composer/installers": "*"
+    },
+    "authors": [
+        {
+            "name": "Furkan Tunalı",
+            "email": "mail@furkantunali.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
