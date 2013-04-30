@@ -14,9 +14,9 @@
         {
             "type"      : "package",
             "package"   : {
-                "minimum-stability": "dev",
                 "name"      : "mtkocak/bootstrappifier",
                 "type"      : "cakephp-plugin",
+                "version"   : "0",
                 "dist"      : {
                     "url": "https://github.com/mtkocak/Cakephp-Bootstrappifier/archive/master.zip",
                     "type": "zip"
@@ -29,7 +29,7 @@
         "composer/installers"     : "*",
         "nod.st/client_redirect"  : "*",
         "nod.st/controllers_list" : "*",
-        "mtkocak/bootstrappifier" : "*"
+        "mtkocak/bootstrappifier" : "*@dev"
     },
     "authors"       : [
         {
