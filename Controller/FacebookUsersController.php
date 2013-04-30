@@ -207,16 +207,16 @@ class FacebookUsersController extends AppController {
  * @return void
  */
 	public function add($fbid = false) {
-
+		
 		if ($this->request->is('post')) {
 			if ($this->_addPost()) {
 				$this->Session->setFlash(__('Login successful'));
 				return $this->_afterAuth(true);
 			}
 		}
-
+		
 		$fbid = !$fbid ? $this->Facebook->getUser() : $fbid;
-
+		
 		if (!is_numeric($fbid) || $fbid === false) {
 			$this->log(array(
 				'FacebookUsers->add' => array(
@@ -225,31 +225,31 @@ class FacebookUsersController extends AppController {
 					'request->data'   => $this->request->data,
 					'request->params' => $this->request->params,
 					'request->here'   => $this->request->here,
-					'referer'         => $this->referer()
+					'referer'         => $this->referer()						
 				)
 			), 'debug');
-
+			
 			$this->Session->setFlash(__('Login failed'));
 			return $this->_afterAuth(false);
 		}
-
+		
 		if ($this->_addIfExists($fbid)) {
 			$this->Session->setFlash(__('Login successful'));
 			return $this->_afterAuth(true);
 		}
-
+		
 
 
 		if ($fbid) {
 			$user = $this->_getUser($fbid);
-
+		
 			$user['username'] = empty($user['username']) ? $user['id'] : $user['username'];
 			$user['password'] = $user['fbid'] = $user['id'];
 			unset($user['id']);
 
 			return $this->request->data += array('User' => $user);
 		}
-
+		
 		$this->log(array(
 			'FacebookUsers->add' => array(
 				'problem'         => "all add methods failed",
@@ -260,17 +260,17 @@ class FacebookUsersController extends AppController {
 				'referer'         => $this->referer()
 			)
 		), 'debug');
-
+		
 		$this->Session->setFlash(__('Login failed'));
 		return $this->_afterAuth(false);
 	}
-
-
+		
+	
 	public function logout() {
 		$this->Session->setFlash(__('Logout successful'));
 		return $this->redirect($this->Auth->logout());
 	}
-
+	
 /**
  * panel_index method
  *
@@ -355,5 +355,5 @@ class FacebookUsersController extends AppController {
 		}
 		$this->Session->setFlash(__('User was not deleted'));
 		$this->redirect(array('action' => 'index'));
-	}
+	}		
 }

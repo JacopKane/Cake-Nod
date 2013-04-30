@@ -32,23 +32,20 @@ $title = __('Project Name');
 			echo $this->Html->meta(array('name' => 'viewport', 'content' => 'width=780,maximum-scale=1.0'));
 		$this->end();
 
-		$librariesPath = FULL_BASE_URL . '/Libraries';
-		$vendorsPath = "{$librariesPath}/Vendor";
-
-		$this->Html->css(array("{$vendorsPath}/google-code-prettify/src/prettify.css", 'Nod.bootstrap.min'), null, array('inline' => false));
-
+		$this->Html->css(array('google-code-prettify/prettify', 'bootstrap'), null, array('inline' => false));
 		$this->Html->script(array(
-			'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
-			"{$vendorsPath}/google-code-prettify/src/prettify.js",
-			"Bootstrappifier.cakebootstrap.js",
-			"{$vendorsPath}/lessjs/dist/less-1.3.0.min.js",
-			"Nod.bootstrap.min",
-			"{$vendorsPath}/jClasses/jquery.jClasses.js",
-			"{$vendorsPath}/jQuery-WaterwheelCarousel/js/jquery.waterwheelCarousel.min.js"
+			'google-code-prettify/prettify',
+			'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
+			'lessjs/dist/less-1.3.0.min',
+			'bootstrap/bootstrap-typeahead',
+			'Bootstrappifier/cakebootstrap',
+			'jClasses/jquery.jClasses',
+			'jQuery-WaterwheelCarousel/jquery.waterwheelCarousel.min',
+			'script'
 		), array('inline' => false));
 
 		echo $this->fetch('meta');
-		echo $this->fetch('css');
+		echo str_replace('.less.css', '.less', $this->fetch('css'));
 		echo $this->fetch('script');
 	?>
 	<script>var configuration = Configuration = $.parseJSON('<?php echo json_encode($configuration); ?>');</script>
@@ -58,14 +55,36 @@ $title = __('Project Name');
     <![endif]-->
 </head>
 <body>
-	<?php echo $this->element('header'); ?>
-
-	<div class="container" id="container">
-		<div class="row" id="content">
+	<div class="navbar navbar-top">
+		<div class="navbar-inner">
+		<div class="container-fluid">
+			<?php echo $this->Html->link(__('Panel'), array(
+				'controller' => 'dashboard', 'action' => 'index', 'panel' => true, 'plugin' => 'Nod'
+			), array('class' => 'brand')); ?>
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+					<?php foreach($controllersList as $key => $controller): ?>
+						<li><?php echo $this->Html->link(__($controller['name']), array(
+							'controller' => strtolower($key),
+							'plugin'     => empty($controller['plugin']) ? false : $controller['plugin'],
+							'panel'      => true,
+							'action'     => 'index'
+						)); ?></li>
+					<?php endforeach; ?>
+					<li><?php echo $this->Html->link(__('Go To Site'), array('controller' => 'pages', 'action' => 'display', 'panel' => false, 'plugin' => false, 'home')); ?></li>
+					<li><?php echo $this->Html->link(__('Logout'), array('controller' => 'users', 'action' => 'logout', 'panel' => false, 'plugin' => false)); ?></li>
+				</ul>
+			</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container-fluid" id="container">
+		<div class="row-fluid" id="content">
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->fetch('content'); ?>
 		</div>
-
+		
 		<div id="footer">
 			<?php echo $this->Html->link(
 					$this->Html->image('cake.power.gif', array('alt' => __('CakePHP: the rapid development php framework'), 'border' => '0')),
@@ -80,8 +99,6 @@ $title = __('Project Name');
 		});
 	'); ?>
 	<?php echo $this->element('analytics'); ?>
-	<?php if($configuration->enviromentType === 'test'): ?>
-		<?php echo $this->element('sql_dump'); ?>
-	<?php endif; ?>
+	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>
