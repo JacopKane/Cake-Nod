@@ -1,6 +1,9 @@
 {
     "name": "nod.st/cake-nod",
+    "type": "cakephp-plugin",
+    "keywords": ["cakephp", "nod", "admin", "plugin"],
     "require": {
+        "php": ">=5.3.3",
         "composer/installers": "*"
     },
     "authors": [
