@@ -1,6 +1,5 @@
 {
     "name"         : "nod.st/nod",
-    "version"      : "0.1",
     "type"         : "cakephp-plugin",
     "keywords"     : ["cakephp", "nod", "admin", "plugin"],
     "repositories" : [
