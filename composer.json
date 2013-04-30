@@ -1,5 +1,6 @@
 {
     "name"         : "nod.st/nod",
+    "version"      : "0.1",
     "type"         : "cakephp-plugin",
     "keywords"     : ["cakephp", "nod", "admin", "plugin"],
     "repositories" : [
@@ -16,11 +17,12 @@
             "package"   : {
                 "name"      : "mtkocak/bootstrappifier",
                 "type"      : "cakephp-plugin",
-                "version"   : "0",
+                "version"   : "dev-master",
                 "dist"      : {
                     "url": "https://github.com/mtkocak/Cakephp-Bootstrappifier/archive/master.zip",
                     "type": "zip"
-                }
+                },
+                "minimum-stability": "dev"
             }
         }
     ],
@@ -29,7 +31,7 @@
         "composer/installers"     : "*",
         "nod.st/client_redirect"  : "*",
         "nod.st/controllers_list" : "*",
-        "mtkocak/bootstrappifier" : "*@dev"
+        "mtkocak/bootstrappifier" : "*"
     },
     "authors"       : [
         {
