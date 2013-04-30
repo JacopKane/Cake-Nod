@@ -28,9 +28,9 @@
     "require"       : {
         "php"                     : ">=5.3.3",
         "composer/installers"     : "*",
-        "nod.st/client_redirect"  : "*@dev",
-        "nod.st/controllers_list" : "*@dev",
-        "mtkocak/bootstrappifier" : "*@dev"
+        "nod.st/client_redirect"  : "*",
+        "nod.st/controllers_list" : "*",
+        "mtkocak/bootstrappifier" : "*"
     },
     "authors"       : [
         {
