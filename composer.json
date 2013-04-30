@@ -1,5 +1,5 @@
 {
-    "name": "nod.st/cake-nod",
+    "name": "nod.st/nod",
     "type": "cakephp-plugin",
     "keywords": ["cakephp", "nod", "admin", "plugin"],
     "require": {
