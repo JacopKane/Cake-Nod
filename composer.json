@@ -5,14 +5,6 @@
     "keywords"     : ["cakephp", "nod", "admin", "plugin"],
     "repositories" : [
         {
-            "type": "vcs",
-            "url": "git@github.com:JacopKane/Cake-ClientRedirect.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:JacopKane/Cake-ControllersList.git"
-        },
-        {
             "type"      : "package",
             "package"   : {
                 "name"      : "mtkocak/bootstrappifier",
@@ -21,8 +13,7 @@
                 "dist"      : {
                     "url": "https://github.com/mtkocak/Cakephp-Bootstrappifier/archive/master.zip",
                     "type": "zip"
-                },
-                "minimum-stability": "dev"
+                }
             }
         }
     ],
@@ -31,7 +22,8 @@
         "composer/installers"     : "*",
         "nod.st/client_redirect"  : "*",
         "nod.st/controllers_list" : "*",
-        "mtkocak/bootstrappifier" : "*"
+        "mtkocak/bootstrappifier" : "*",
+        "cakephp/debug_kit"       : "*"
     },
     "authors"       : [
         {
