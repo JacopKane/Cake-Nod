@@ -5,6 +5,14 @@
     "keywords"     : ["cakephp", "nod", "admin", "plugin"],
     "repositories" : [
         {
+            "type": "vcs",
+            "url": "git@github.com:JacopKane/Cake-ClientRedirect.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:JacopKane/Cake-ControllersList.git"
+        },
+        {
             "type"      : "package",
             "package"   : {
                 "name"      : "mtkocak/bootstrappifier",
@@ -13,6 +21,31 @@
                 "dist"      : {
                     "url": "https://github.com/mtkocak/Cakephp-Bootstrappifier/archive/master.zip",
                     "type": "zip"
+                },
+                "extra": {
+                    "installer-paths": {
+                        "Plugin/Nod/Plugin/{$name}/": ["mtkocak/bootstrappifier", "vendor/package"]
+                    }
+                },
+                "minimum-stability": "dev"
+            }
+        },
+        {
+            "type"      : "package",
+            "package"   : {
+                "name"      : "rhym/cake_strap",
+                "type"      : "cakephp-plugin",
+                "version"   : "dev-master",
+                "dist"      : {
+                    "url": "https://github.com/Rhym/cakeStrap/archive/master.zip",
+                    "type": "zip"
+                },
+                "minimum-stability": "dev",
+                "extra": {
+                    "installer-paths": {
+                        "Plugin/Nod/Plugin/{$name}/": ["rhym/cake_strap", "vendor/package"],
+                        "Plugin/Nod/Plugin/{$name}/": ["rhym/cake_strap", "vendor/package"]
+                    }
                 }
             }
         }
@@ -22,8 +55,9 @@
         "composer/installers"     : "*",
         "nod.st/client_redirect"  : "*",
         "nod.st/controllers_list" : "*",
+        "facebook/php-sdk"        : "*",
         "mtkocak/bootstrappifier" : "*",
-        "cakephp/debug_kit"       : "*"
+        "rhym/cake_strap"         : "*"
     },
     "authors"       : [
         {

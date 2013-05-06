@@ -38,20 +38,14 @@ $title = __('Project Name');
 		$this->Html->css(array("{$vendorsPath}/google-code-prettify/src/prettify.css", 'Nod.bootstrap.min'), null, array('inline' => false));
 
 		$this->Html->script(array(
-			'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
-			"{$vendorsPath}/google-code-prettify/src/prettify.js",
-			"Bootstrappifier.cakebootstrap.js",
-			"{$vendorsPath}/lessjs/dist/less-1.3.0.min.js",
-			"Nod.bootstrap.min",
-			"{$vendorsPath}/jClasses/jquery.jClasses.js",
-			"{$vendorsPath}/jQuery-WaterwheelCarousel/js/jquery.waterwheelCarousel.min.js"
+			'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'
 		), array('inline' => false));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
-	<script>var configuration = Configuration = $.parseJSON('<?php echo json_encode($configuration); ?>');</script>
+	<script>var configuration = Configuration = $.parseJSON('<?php echo json_encode($config); ?>');</script>
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -74,13 +68,8 @@ $title = __('Project Name');
 				);
 			?>
 		</div>
-	<?php echo $this->Html->scriptBlock('
-	    $(document).ready(function() {
-			Bootstrappifier.load();
-		});
-	'); ?>
 	<?php echo $this->element('analytics'); ?>
-	<?php if($configuration->enviromentType === 'test'): ?>
+	<?php if($config->enviromentType === 'development'): ?>
 		<?php echo $this->element('sql_dump'); ?>
 	<?php endif; ?>
 </body>

@@ -1,13 +1,13 @@
 <?php
-
 App::uses('Controller', 'Controller');
 
 class NodAppController extends Controller {
+	public $layout = 'app';
 
 	public $components = array(
 		'Nod.Initialize', 'Session',
 		'ControllersList.GetList'	=> array(
-			'exclude'			=> array('Pages'),
+			'exclude'			=> array('Pages', 'NodUsers', 'NodFacebookUsers', 'Nod', 'Dashboard'),
 			'plugins_exclude'	=> array('DebugKit', 'Nod'),
 			'order_by'			=> 'order',
 			'cache'				=> false
@@ -83,7 +83,6 @@ class NodAppController extends Controller {
 		$this->helpers += array('Session');
 
 		$this->home = Configure::read('Environment.Routes.home') ?: '/';
-		$this->layout = $this->request->prefix ? $this->request->prefix : 'default';
 
 		$returnTo = $this->Session->read('Environment.returnTo');
 		if (is_array($returnTo) || is_string($returnTo)) {
@@ -102,15 +101,18 @@ class NodAppController extends Controller {
 			'fbAppUrl'       => Configure::read('Facebook.appUrl'),
 		) : array();
 		if ($this->request->prefix === 'panel') {
+			$this->theme		= 'Cakestrap';
+			$this->layout		= 'default';
+
 			$environmentType = Configure::read('Environment.Type');
 			$this->clientConfiguration += $facebookSettings + array(
 				'enviromentType'=> $environmentType,
 				'basePath'		=> Router::url('/'),
 				'baseUrl'		=> Router::url('/', true),
-				'pageType'		=> 'panel'
+				'pageType'		=> $this->request->prefix
 			);
 
-			$this->set('configuration', (object) $this->clientConfiguration);
+			$this->set('config', (object) $this->clientConfiguration);
 			$this->set('referer', $this->referer());
 		}
 

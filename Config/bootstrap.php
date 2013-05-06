@@ -16,7 +16,7 @@ class NodStrap {
 			$phpEnv = 'production';
 			foreach($localServers as $localServer) {
 				if(preg_match($localServer, env('SERVER_NAME'))) {
-					$phpEnv = 'test';
+					$phpEnv = 'development';
 				}
 			}
 		}
@@ -59,12 +59,12 @@ class NodStrap {
 
 	protected function _setPaths(Array $config) { 
 		$config['Paths'] += array(
-			'libraries'		=> dirname(dirname(dirname(dirname(__FILE__)))),
+			'libraries'		=> CAKE_CORE_INCLUDE_PATH,
 			'cake_nod'		=> dirname(dirname(__FILE__)),
 			'cake_plugins'	=> dirname(dirname(dirname(__FILE__))),
-			'nod_plugins'	=> dirname(dirname(dirname(dirname(__FILE__)))) . DS . 'Nod',
-			'app'			=> ROOT . DS . APP_DIR,
-			'app_webroot'	=> ROOT . DS . APP_DIR . DS . WEBROOT_DIR
+			'nod_plugins'	=> dirname(dirname(__FILE__)) . DS . 'Plugin',
+			'app_webroot'	=> ROOT . DS . APP_DIR . DS . WEBROOT_DIR,
+			'app'			=> ROOT . DS . APP_DIR
 		);
 		return $config;
 	}
@@ -87,16 +87,27 @@ class NodStrap {
 
 if (!NodStrap::init()) { return false; }
 
-App::build(array(
-	'Vendor'	=> array(Configure::read('Environment.Paths.libraries') . DS),
-	'Plugin'	=> array(Configure::read('Environment.Paths.cake_plugins') . DS, Configure::read('Environment.Paths.nod_plugins') . DS),
-	'View'		=> array(Configure::read('Environment.Paths.cake_nod') . DS . 'View' . DS),
-	'Controller'=> array(Configure::read('Environment.Paths.cake_nod') . DS . 'View' . DS)
-));
+$nodPaths = array(
+	'Vendor'		=> array(Configure::read('Environment.Paths.libraries') . DS),
+	'Plugin'		=> array(
+		Configure::read('Environment.Paths.cake_plugins') . DS,
+		Configure::read('Environment.Paths.nod_plugins') . DS,
+		Configure::read('Environment.Paths.nod_plugins') . DS . 'Nod' . DS
+	),
+	'View'			=> array(App::pluginPath('Nod') . 'View' . DS),
+	'Controller'	=> array(Configure::read('Environment.Paths.cake_nod') . DS . 'Controller' . DS)
+);
+
+$nodPaths = array_merge_recursive(App::paths(), $nodPaths);
+App::build($nodPaths);
+
+//debug(App::paths());
 
 $locale = 'tur';
 setlocale(LC_ALL, $locale);
 putenv("LC_ALL={$locale}");
 Configure::write('Config.language', $locale);
 
-CakePlugin::load(array('ClientRedirect', 'ControllersList', 'Bootstrappifier'));
+CakePlugin::load(array(
+	'ClientRedirect', 'ControllersList', 'DebugKit', 'CakeStrapper'
+));
