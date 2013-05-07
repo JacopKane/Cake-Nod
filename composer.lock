@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "2b4d226206972ad1f541065ed51933fe",
+    "hash": "6804117fe92252dc493547bc46969fde",
     "packages": [
         {
             "name": "composer/installers",
@@ -118,25 +118,6 @@
                 "sdk"
             ],
             "time": "2013-01-15 21:37:15"
-        },
-        {
-            "name": "mtkocak/bootstrappifier",
-            "version": "dev-master",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/mtkocak/Cakephp-Bootstrappifier/archive/master.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "type": "cakephp-plugin",
-            "extra": {
-                "installer-paths": {
-                    "Plugin/Nod/Plugin/{$name}/": [
-                        "mtkocak/bootstrappifier",
-                        "vendor/package"
-                    ]
-                }
-            }
         },
         {
             "name": "nod.st/client_redirect",

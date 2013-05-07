@@ -15,26 +15,7 @@
         {
             "type"      : "package",
             "package"   : {
-                "name"      : "mtkocak/bootstrappifier",
-                "type"      : "cakephp-plugin",
-                "version"   : "dev-master",
-                "dist"      : {
-                    "url": "https://github.com/mtkocak/Cakephp-Bootstrappifier/archive/master.zip",
-                    "type": "zip"
-                },
-                "extra": {
-                    "installer-paths": {
-                        "Plugin/Nod/Plugin/{$name}/": ["mtkocak/bootstrappifier", "vendor/package"]
-                    }
-                },
-                "minimum-stability": "dev"
-            }
-        },
-        {
-            "type"      : "package",
-            "package"   : {
                 "name"      : "rhym/cake_strap",
-                "type"      : "cakephp-plugin",
                 "version"   : "dev-master",
                 "dist"      : {
                     "url": "https://github.com/Rhym/cakeStrap/archive/master.zip",
@@ -49,13 +30,13 @@
             }
         }
     ],
+    "minimum-stability": "dev",
     "require"       : {
         "php"                     : ">=5.3.3",
         "composer/installers"     : "*",
         "nod.st/client_redirect"  : "*",
         "nod.st/controllers_list" : "*",
         "facebook/php-sdk"        : "*",
-        "mtkocak/bootstrappifier" : "*",
         "rhym/cake_strap"         : "dev-master"
     },
     "authors"       : [
@@ -63,6 +44,5 @@
             "name": "Furkan Tunalı",
             "email": "mail@furkantunali.com"
         }
-    ],
-    "minimum-stability": "dev"
+    ]
 }
