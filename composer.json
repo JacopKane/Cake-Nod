@@ -13,6 +13,7 @@
             "url": "git@github.com:JacopKane/Cake-ControllersList.git"
         },
         {
+            "name"      : "rhym/cake_strap",
             "type"      : "package",
             "package"   : {
                 "name"      : "rhym/cake_strap",
