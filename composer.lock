@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "7d120a46f1bbc2211b5961392aabddf0",
+    "hash": "2b4d226206972ad1f541065ed51933fe",
     "packages": [
         {
             "name": "composer/installers",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "6c23b07b3d07e392a1769110d2a910ab269aaa3d"
+                "reference": "48a6227dfac4e51233a2fae5d5085db9655209f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/6c23b07b3d07e392a1769110d2a910ab269aaa3d",
-                "reference": "6c23b07b3d07e392a1769110d2a910ab269aaa3d",
+                "url": "https://api.github.com/repos/composer/installers/zipball/48a6227dfac4e51233a2fae5d5085db9655209f0",
+                "reference": "48a6227dfac4e51233a2fae5d5085db9655209f0",
                 "shasum": ""
             },
             "replace": {
@@ -72,10 +72,9 @@
                 "silverstripe",
                 "symfony",
                 "wordpress",
-                "yii",
                 "zend"
             ],
-            "time": "2013-04-22 16:11:49"
+            "time": "2013-05-07 19:50:30"
         },
         {
             "name": "facebook/php-sdk",
@@ -252,9 +251,9 @@
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "rhym/cake_strap": 20
+    },
     "platform": {
         "php": ">=5.3.3"
     },

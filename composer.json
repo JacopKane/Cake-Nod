@@ -43,7 +43,6 @@
                 "minimum-stability": "dev",
                 "extra": {
                     "installer-paths": {
-                        "Plugin/Nod/Plugin/{$name}/": ["rhym/cake_strap", "vendor/package"],
                         "Plugin/Nod/Plugin/{$name}/": ["rhym/cake_strap", "vendor/package"]
                     }
                 }
@@ -57,7 +56,7 @@
         "nod.st/controllers_list" : "*",
         "facebook/php-sdk"        : "*",
         "mtkocak/bootstrappifier" : "*",
-        "rhym/cake_strap"         : "*"
+        "rhym/cake_strap"         : "dev-master"
     },
     "authors"       : [
         {
