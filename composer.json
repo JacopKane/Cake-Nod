@@ -1,12 +1,13 @@
 {
-    "name"          : "nod.st/nod",
-    "version"       : "0.0.2",
-    "config"        : {
+    "name"              : "nod.st/nod",
+    "minimum-stability" : "dev",
+    "version"           : "0.0.2",
+    "config"            : {
         "vendor-dir"    : "Vendor"
     },
-    "type"          : "cakephp-plugin",
-    "keywords"      : ["cakephp", "nod", "admin", "plugin"],
-    "repositories"  : [
+    "type"              : "cakephp-plugin",
+    "keywords"          : ["cakephp", "nod", "admin", "plugin"],
+    "repositories"      : [
         {
             "type"  : "vcs",
             "url"   : "git@github.com:JacopKane/Cake-ClientRedirect.git"
@@ -27,6 +28,7 @@
         "nod.st/client_redirect"    : "*",
         "nod.st/controllers_list"   : "*",
         "facebook/php-sdk"          : "*",
+        "cakephp/debug_kit"         : "*",
         "rhym/cake-strap"           : "*"
     },
     "authors"           : [
