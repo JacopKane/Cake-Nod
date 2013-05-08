@@ -1,49 +1,38 @@
 {
-    "name"         : "nod.st/nod",
-    "version"      : "0.1",
-    "type"         : "cakephp-plugin",
-    "keywords"     : ["cakephp", "nod", "admin", "plugin"],
-    "repositories" : [
+    "name"          : "nod.st/nod",
+    "version"       : "0.0.2",
+    "config"        : {
+        "vendor-dir"    : "Vendor"
+    },
+    "type"          : "cakephp-plugin",
+    "keywords"      : ["cakephp", "nod", "admin", "plugin"],
+    "repositories"  : [
         {
-            "type": "vcs",
-            "url": "git@github.com:JacopKane/Cake-ClientRedirect.git"
+            "type"  : "vcs",
+            "url"   : "git@github.com:JacopKane/Cake-ClientRedirect.git"
         },
         {
-            "type": "vcs",
-            "url": "git@github.com:JacopKane/Cake-ControllersList.git"
+            "type"  : "vcs",
+            "url"   : "git@github.com:JacopKane/Cake-ControllersList.git"
         },
         {
-            "name"      : "rhym/cake_strap",
-            "type"      : "package",
-            "package"   : {
-                "name"      : "rhym/cake_strap",
-                "version"   : "dev-master",
-                "dist"      : {
-                    "url": "https://github.com/Rhym/cakeStrap/archive/master.zip",
-                    "type": "zip"
-                },
-                "minimum-stability": "dev",
-                "extra": {
-                    "installer-paths": {
-                        "Plugin/Nod/Plugin/{$name}/": ["rhym/cake_strap", "vendor/package"]
-                    }
-                }
-            }
+            "type"  : "vcs",
+            "url"   : "git@github.com:JacopKane/Cake-Strap.git"
         }
     ],
-    "minimum-stability": "dev",
-    "require"       : {
-        "php"                     : ">=5.3.3",
-        "composer/installers"     : "*",
-        "nod.st/client_redirect"  : "*",
-        "nod.st/controllers_list" : "*",
-        "facebook/php-sdk"        : "*",
-        "rhym/cake_strap"         : "dev-master"
+    "minimum-stability" : "dev",
+    "require"           : {
+        "php"                       : ">=5.3.3",
+        "composer/installers"       : "*",
+        "nod.st/client_redirect"    : "*",
+        "nod.st/controllers_list"   : "*",
+        "facebook/php-sdk"          : "*",
+        "rhym/cake-strap"           : "*"
     },
-    "authors"       : [
+    "authors"           : [
         {
-            "name": "Furkan Tunalı",
-            "email": "mail@furkantunali.com"
+            "name"  : "Furkan Tunalı",
+            "email" : "mail@furkantunali.com"
         }
     ]
 }

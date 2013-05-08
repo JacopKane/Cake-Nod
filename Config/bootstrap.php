@@ -109,5 +109,8 @@ putenv("LC_ALL={$locale}");
 Configure::write('Config.language', $locale);
 
 CakePlugin::load(array(
-	'ClientRedirect', 'ControllersList', 'DebugKit', 'CakeStrapper'
+	'CakeStrap' => array(
+		'bootstrap' => true
+	),
+	'ClientRedirect', 'ControllersList', 'DebugKit'
 ));
