@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "d491a6ddcf16f0903307963b930f1082",
+    "hash": "b982b92fb915c2eea87e95120cedfdef",
     "packages": [
         {
             "name": "composer/installers",
@@ -206,23 +206,39 @@
             "time": "2013-04-30 15:43:51"
         },
         {
-            "name": "rhym/cake_strap",
+            "name": "rhym/cake-strap",
             "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JacopKane/Cake-Strap.git",
+                "reference": "11b5e4897289aa17927481fd1ac6ecc402969ac8"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Rhym/cakeStrap/archive/master.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://api.github.com/repos/JacopKane/Cake-Strap/zipball/11b5e4897289aa17927481fd1ac6ecc402969ac8",
+                "reference": "11b5e4897289aa17927481fd1ac6ecc402969ac8",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*",
+                "php": ">=5.2.0"
             },
             "type": "cakephp-plugin",
-            "extra": {
-                "installer-paths": {
-                    "Plugin/Nod/Plugin/{$name}/": [
-                        "rhym/cake_strap",
-                        "vendor/package"
-                    ]
+            "authors": [
+                {
+                    "name": "Ryan Potter",
+                    "email": "contact@ryanpotter.co.nz"
+                },
+                {
+                    "name": "Furkan Tunalı",
+                    "email": "mail@furkantunali.com"
                 }
-            }
+            ],
+            "description": "CakePHP Plugin includes Twitter Bootstrap Theme & Template",
+            "support": {
+                "source": "https://github.com/JacopKane/Cake-Strap/tree/master"
+            },
+            "time": "2013-05-08 01:43:37"
         }
     ],
     "packages-dev": [
@@ -232,9 +248,9 @@
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "rhym/cake_strap": 20
-    },
+    "stability-flags": [
+
+    ],
     "platform": {
         "php": ">=5.3.3"
     },
