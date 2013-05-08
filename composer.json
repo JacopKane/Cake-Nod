@@ -7,12 +7,6 @@
     },
     "type"              : "cakephp-plugin",
     "keywords"          : ["cakephp", "nod", "admin", "plugin"],
-    "repositories"      : [
-        {
-            "type"  : "vcs",
-            "url"   : "git@github.com:JacopKane/Cake-Strap.git"
-        }
-    ],
     "minimum-stability" : "dev",
     "require"           : {
         "php"                       : ">=5.3.3",
