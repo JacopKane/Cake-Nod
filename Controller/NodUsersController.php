@@ -1,11 +1,18 @@
 <?php
 App::uses('AppController', 'Controller');
+if(class_exists('AppController')) {
+	class ParentAppController extends AppController {}
+} else {
+	App::uses('NodAppController', 'Nod.Controller');
+	class ParentAppController extends NodAppController {}
+}
+
 /**
  * Users Controller
  *
  * @property User $User
  */
-class NodUsersController extends AppController {
+class NodUsersController extends ParentAppController {
 
 	public function beforeFilter() {
 		$this->Auth->allow('panel_login', 'panel_logout');

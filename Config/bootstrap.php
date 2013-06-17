@@ -12,7 +12,7 @@ class NodStrap {
 	protected function _setEnviromentType() {
 		$phpEnv = php_sapi_name() === 'cli' ? 'cli' : false;
 		if ($phpEnv !== 'cli' && env('SERVER_NAME')) {
-			$localServers = array('/192.168.1.*/', '/localhost/', '/::1/', '/127.0.0.1/');
+			$localServers = array('/192.168.1.*/', '/^test.*/', '/localhost/', '/::1/', '/127.0.0.1/');
 			$phpEnv = 'production';
 			foreach($localServers as $localServer) {
 				if(preg_match($localServer, env('SERVER_NAME'))) {
@@ -112,5 +112,9 @@ CakePlugin::load(array(
 	'CakeStrap' => array(
 		'bootstrap' => true
 	),
-	'ClientRedirect', 'ControllersList', 'DebugKit'
+	'ClientRedirect', 'ControllersList', 'DebugKit', 'Uploader'
 ));
+
+$autoloadPath = APP . DS . 'Vendor' . DS . 'autoload.php';
+if(file_exists($autoloadPath))
+	require_once $autoloadPath;

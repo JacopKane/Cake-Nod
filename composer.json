@@ -1,7 +1,6 @@
 {
     "name"              : "nod.st/nod",
     "minimum-stability" : "dev",
-    "version"           : "0.0.2",
     "config"            : {
         "vendor-dir"    : "Vendor"
     },

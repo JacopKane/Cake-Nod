@@ -2,12 +2,21 @@
 class InitializeComponent extends Component {
 
 	protected function _facebook() {
-		if(!is_file(APP . DS . 'Config' . DS . 'Facebook.php')) { return false; }
-		Configure::load('facebook');
-		$facebookSettings = Configure::read('Facebook');
-		if (empty($facebookSettings)) { return false; }
+		if(isset($this->Facebook))
+			if($this->Facebook)
+				return $this->Facebook;
 
-		App::import('Vendor', '/facebook-php-sdk/src/Facebook');
+		//App::import('Vendor', '/facebook-php-sdk/src/Facebook');
+		if(!is_file(APP . DS . 'Config' . DS . 'Facebook.php')) { return false; }
+
+		if(Configure::check('Facebook')) {
+			$settings = Configure::read('Facebook');
+			if(empty($facebookSettings))
+				return false;
+		}
+
+		exit(debug(class_exists('Facebook') ? true : false));
+		App::uses('Facebook/php-sdk/src/facebook', 'Vendor');
 
 		$this->controller->Facebook = new Facebook($facebookSettings);
 

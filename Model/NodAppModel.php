@@ -40,4 +40,19 @@ class NodAppModel extends Model {
 	protected function _formatPassword($password = '') {
 		return AuthComponent::password($password);
 	}
+
+	public function beforeSave($options = array()) {
+		$parent = parent::beforeSave($options);
+
+		if(empty($this->data[$this->alias]['name']))
+			return $parent;
+
+		$name			= $this->data[$this->alias]['name'];
+		$name_slug		= strtolower(Inflector::slug($name));
+		$name_variable	= Inflector::variable($name_slug);
+
+		$this->data[$this->alias] += compact('name_variable', 'name_slug');
+
+		return $parent;
+	}
 }
