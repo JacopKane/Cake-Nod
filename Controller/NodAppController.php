@@ -102,7 +102,7 @@ class NodAppController extends Controller {
 			'fbAppUrl'       => Configure::read('Facebook.appUrl'),
 		) : array();
 		if ($this->request->prefix === 'panel') {
-			$this->theme		= 'Cakestrap';
+			$this->theme		= 'CakeStrap';
 			$this->layout		= 'default';
 
 			$environmentType = Configure::read('Environment.Type');
