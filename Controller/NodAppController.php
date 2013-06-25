@@ -29,6 +29,19 @@ class NodAppController extends Controller {
 		'Logout'	=> array('controller' => 'users', 'action' => 'logout', 'panel' => true, 'plugin' => false)
 	);
 
+	protected function checkMethod($method = false, $context = false) {
+		if(!$method)
+			return false;
+		$context = is_object($context) ?
+			$context : $this;
+		if(!method_exists($context, $method))
+			return false;
+		if(!is_callable(array($context, $method)))
+			return false;
+
+		return true;
+	}
+
 	static protected $returnException = array(
 		'users'			=> array('check', 'add', 'panel_login', 'login'),
 		'facebook_users'=> array('check', 'add', 'panel_login', 'login')
