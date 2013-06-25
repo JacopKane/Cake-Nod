@@ -15,7 +15,7 @@ class InitializeComponent extends Component {
 
 		if(!is_file(APP . DS . 'Config' . DS . 'facebook.php'))
 			return false;
-		if(!Configure::load('Facebook'))
+		if(!Configure::load('facebook'))
 			return false;
 		if(!Configure::check('Facebook'))
 			return false;
@@ -45,7 +45,7 @@ class InitializeComponent extends Component {
 
 		if(!is_file(APP . DS . 'Config' . DS . 'twitter.php'))
 			return false;
-		if(!Configure::load('Twitter'))
+		if(!Configure::load('twitter'))
 			return false;
 		if(!Configure::check('Twitter'))
 			return false;
