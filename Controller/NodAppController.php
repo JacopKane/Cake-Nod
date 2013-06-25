@@ -9,7 +9,8 @@ class NodAppController extends Controller {
 		'ControllersList.GetList'	=> array(
 			'exclude'			=> array('Pages', 'NodUsers', 'NodFacebookUsers', 'Nod', 'Dashboard'),
 			'plugins_exclude'	=> array('DebugKit', 'Nod'),
-			'order_by'			=> 'order'
+			'order_by'			=> 'order',
+			'log'				=> false
 		),
 		'ClientRedirect.Redirector'	=> array('disabled' => true),
 		'Auth'						=> array(
