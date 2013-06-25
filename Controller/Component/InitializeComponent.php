@@ -1,31 +1,65 @@
 <?php
 class InitializeComponent extends Component {
 
-	protected function _facebook() {
+	protected $controller;
+
+	protected function loadFacebook() {
 		if(isset($this->Facebook))
 			if($this->Facebook)
 				return $this->Facebook;
 
-		//App::import('Vendor', '/facebook-php-sdk/src/Facebook');
-		if(!is_file(APP . DS . 'Config' . DS . 'Facebook.php')) { return false; }
+		if(!class_exists('Facebook'))
+			App::uses('facebook/php-sdk/src/facebook', 'Vendor');
+		if(!class_exists('Facebook'))
+			return false;
 
-		if(Configure::check('Facebook')) {
-			$settings = Configure::read('Facebook');
-			if(empty($facebookSettings))
-				return false;
-		}
+		if(!is_file(APP . DS . 'Config' . DS . 'facebook.php'))
+			return false;
+		if(!Configure::load('Facebook'))
+			return false;
+		if(!Configure::check('Facebook'))
+			return false;
+		$settings = Configure::read('Facebook');
 
-		exit(debug(class_exists('Facebook') ? true : false));
-		App::uses('Facebook/php-sdk/src/facebook', 'Vendor');
+		if(empty($settings))
+			return false;
 
-		$this->controller->Facebook = new Facebook($facebookSettings);
+		$this->controller->Facebook = new Facebook($settings);
 
 		return $this->controller->Facebook ?: !$this->log(array(
-			"InitializeComponent->_facebook" => array(
-				'facebook'			=> $facebookSettings,
+			"InitializeComponent->facebook" => (array(
 				'request->here'		=> $this->controller->request->here,
 				'request->params'	=> $this->controller->request->params
-			)
+			) + compact('settings'))
+		), 'debug');
+	}
+
+	protected function loadTwitter() {
+		if(isset($this->Twitter))
+			if($this->Twitter)
+				return $this->Twitter;
+		if(!class_exists('Endroid\Twitter\Twitter'))
+			App::uses('endroid/twitter/src/endroid/twitter', 'Vendor');
+		if(!class_exists('Endroid\Twitter\Twitter'))
+			return false;
+
+		if(!is_file(APP . DS . 'Config' . DS . 'twitter.php'))
+			return false;
+		if(!Configure::load('Twitter'))
+			return false;
+		if(!Configure::check('Twitter'))
+			return false;
+		$settings = Configure::read('Twitter');
+		if(empty($settings))
+			return false;
+		extract($settings);
+		$this->controller->Twitter = new Endroid\Twitter\Twitter($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
+
+		return $this->controller->Twitter ?: !$this->log(array(
+			"InitializeComponent->twitter" => (array(
+				'request->here'		=> $this->controller->request->here,
+				'request->params'	=> $this->controller->request->params
+			) + compact('settings'))
 		), 'debug');
 	}
 
@@ -48,7 +82,7 @@ class InitializeComponent extends Component {
 	}
 
 	public function initialize(Controller $controller) {
-		$this->controller = $controller;
+		$this->controller = &$controller;
 
 		if (Configure::read('Environment.Type') === 'production') {
 			Configure::write('debug', 0);
@@ -57,7 +91,8 @@ class InitializeComponent extends Component {
 		$this->controller->home = Configure::read('Paths.home');
 
 		$this->_session();
-		$this->_facebook();
+		$this->loadFacebook();
+		$this->loadTwitter();
 
 		$this->controller->Components->load('RequestHandler');
 

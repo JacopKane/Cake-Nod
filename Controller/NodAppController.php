@@ -5,12 +5,11 @@ class NodAppController extends Controller {
 	public $layout = 'app';
 
 	public $components = array(
-		'Nod.Initialize', 'Session',
+		'Nod.Initialize',
 		'ControllersList.GetList'	=> array(
 			'exclude'			=> array('Pages', 'NodUsers', 'NodFacebookUsers', 'Nod', 'Dashboard'),
 			'plugins_exclude'	=> array('DebugKit', 'Nod'),
-			'order_by'			=> 'order',
-			//'cache'				=> false
+			'order_by'			=> 'order'
 		),
 		'ClientRedirect.Redirector'	=> array('disabled' => true),
 		'Auth'						=> array(
@@ -19,7 +18,10 @@ class NodAppController extends Controller {
 			'loginRedirect'	=> array('controller' => 'pages', 'action' => 'display', 'panel' => false, 'plugin' => false, 'home'),
 			'logoutRedirect'=> array('controller' => 'pages', 'action' => 'display', 'panel' => false, 'plugin' => false, 'home'),
 			'authorize'		=> array('Controller')
-		), 'RequestHandler', 'DebugKit.Toolbar'
+		),
+		'Session',
+		'RequestHandler',
+		'DebugKit.Toolbar'
 	);
 
 	public $panelMenu = array(
