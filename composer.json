@@ -1,5 +1,6 @@
 {
     "name"              : "nod.st/cake-nod",
+    "version"           : "0.0.1",
     "minimum-stability" : "dev",
     "config"            : {
         "vendor-dir"    : "Vendor"
@@ -18,8 +19,12 @@
     },
     "authors"           : [
         {
+            "name"  : "NOD Studios",
+            "email" : "hey@nod.st"
+        },
+        {
             "name"  : "Furkan Tunalı",
-            "email" : "mail@furkantunali.com"
+            "email" : "furkan@nod.st"
         }
     ]
 }
