@@ -1,5 +1,5 @@
 {
-    "name"              : "nod.st/nod",
+    "name"              : "nod.st/cake-nod",
     "minimum-stability" : "dev",
     "config"            : {
         "vendor-dir"    : "Vendor"
@@ -8,13 +8,13 @@
     "keywords"          : ["cakephp", "nod", "admin", "plugin"],
     "minimum-stability" : "dev",
     "require"           : {
-        "php"                       : ">=5.3.3",
-        "composer/installers"       : "*",
-        "nod.st/client_redirect"    : "*",
-        "nod.st/controllers_list"   : "*",
-        "facebook/php-sdk"          : "*",
-        "cakephp/debug_kit"         : "*",
-        "rhym/cake-strap"           : "*"
+        "php"                       	: ">=5.3.3",
+        "composer/installers"       	: "*",
+        "nod.st/cake-client-redirect"	: "*",
+        "nod.st/cake-controllers-list"	: "*",
+        "facebook/php-sdk"          	: "*",
+        "cakephp/debug_kit"         	: "*",
+        "rhym/cake-strap"           	: "*"
     },
     "authors"           : [
         {
