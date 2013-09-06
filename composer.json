@@ -24,5 +24,8 @@
             "email"     : "hey@nod.st",
             "homepage"  : "http://nod.st/"
         }
-    ]
+    ],
+    "extra"             : {
+        "installer-name"    : "Nod"
+    }
 }
