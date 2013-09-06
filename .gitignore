@@ -1,5 +1,5 @@
-/Vendor/
-/Plugin/
+Vendor/
+Plugin/
 composer.lock
 
 #################
